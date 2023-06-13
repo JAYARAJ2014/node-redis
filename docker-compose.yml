@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    depends_on:
+      - redis-server
+    restart: always
+    build: .
+    ports:
+      - '4000:8081'
